@@ -1,4 +1,4 @@
-package com.company.BaekJoon;
+package com.yerin.BaekJoon;
 
 import java.util.Scanner;
 

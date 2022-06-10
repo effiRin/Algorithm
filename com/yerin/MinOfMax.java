@@ -1,4 +1,4 @@
-package com.company;
+package com.yerin;
 
 public class MinOfMax {
 
