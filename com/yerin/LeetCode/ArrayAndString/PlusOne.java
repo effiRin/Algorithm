@@ -7,27 +7,30 @@ public class PlusOne {
 
     public int[] plusOne(int[] digits) {
 
-        String str = "";
-        long num = 0;
-        String plusOneNum = "";
+        int theLastNum = digits.length - 1;
 
+        digits[theLastNum] = digits[theLastNum] + 1;
 
-        for (int i = 0; i < digits.length; i++) {
-            str += Integer.toString(digits[i]);
+        for (int i = theLastNum; i > 0; i--) {
+            if(digits[i] == 10){
+                digits[i-1] += 1;
+                digits[i] = 0;
+            }
         }
 
-        System.out.println(str);
+        if(digits[0] == 10){
+            int[] arr = new int[digits.length + 1];
+            arr[0] = 1;
+            arr[1] = 0;
 
-        num = Long.parseLong(str) + 1;
-
-        plusOneNum = Long.toString(num);
-        int[] plusOneArr = new int[plusOneNum.length()];
-
-        for (int i = 0; i < plusOneNum.length(); i++) {
-            plusOneArr[i] = plusOneNum.charAt(i)-'0';
+            for (int i = 2; i < arr.length; i++) {
+                arr[i] = digits[i-1];
+            }
+            return arr;
         }
 
-        return plusOneArr;
+        return digits;
+
     }
 
     public static void main(String[] args) {
