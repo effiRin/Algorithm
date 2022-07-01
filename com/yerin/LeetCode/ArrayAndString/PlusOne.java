@@ -11,6 +11,7 @@ public class PlusOne {
 
         digits[theLastNum] = digits[theLastNum] + 1;
 
+        // 마지막 자리 수가 +1해서 10이 되었을 때
         for (int i = theLastNum; i > 0; i--) {
             if(digits[i] == 10){
                 digits[i-1] += 1;
@@ -18,6 +19,7 @@ public class PlusOne {
             }
         }
 
+        // 첫번째 자리 수가 10일 때
         if(digits[0] == 10){
             int[] arr = new int[digits.length + 1];
             arr[0] = 1;
