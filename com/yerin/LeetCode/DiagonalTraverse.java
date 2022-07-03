@@ -5,13 +5,27 @@ public class DiagonalTraverse {
 
     public int[] findDiagonalOrder(int[][] mat) {
 
-        for (int i = 0; i < mat.length; i++) {
-            int m = mat.length;
-            int n = mat[i].length;
+        int m = mat.length;
+        int n = mat[0].length;
 
-        }
+        int diagonalNum = (m + n) - 1 ; // 대각선의 개수 = 총 실행횟수
 
-        int[] result = new int[mat.length];
+        int[] result = new int[m * n]; // 새로 담을 배열
+
+        int num = 0;
+
+            for (int a = 0; a <= m-1; a++) {
+                if(a == 0) {
+                    result[num] = mat[0][0];
+                }
+                if(a == 1) {
+                    
+                }
+
+                num++;
+                result[num] = mat[i][];
+            }
+
 
         return result;
     }
