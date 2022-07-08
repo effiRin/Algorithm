@@ -10,57 +10,42 @@ public class SpiralMatrix {
 
         List<Integer> result = new ArrayList<>();
 
-        int row = matrix.length;
-        int col = matrix[0].length;
-        int total = row * col;
+        int rowBegin = 0;
+        int rowEnd = matrix.length-1;
+        int colBegin = 0;
+        int colEnd = matrix[0].length-1;
 
-        int cycleNum = 0;
-        int i = 0;
-        int j = 0;
+        while(result.size() < matrix.length * matrix[0].length) {
 
-        result.add(matrix[i][j]);
-
-        while (result.size() < total) {
-
-                // to right
-                for (int k = 1; k < col-cycleNum; k++) { // to right
-                    if(result.size() == total){return result;}
-                    j++;
-                    result.add(matrix[i][j]);
-                    System.out.println("[right] i : " + i + "/ j : " + j);
-                }
-
-                // to down
-                for (int k = 1; k < row-cycleNum; k++) {
-                    if(result.size() == total){return result;}
-                    i++;
-                    result.add(matrix[i][j]);
-                    System.out.println("[down] i : " + i + "/ j : " + j);
-                }
-
-                // to left
-                for (int k = 1; k < col-cycleNum; k++) {
-                    if(result.size() == total){return result;}
-                    j--;
-                    result.add(matrix[i][j]);
-                    System.out.println("[left] i : " + i + "/ j : " + j);
-                }
-
-                // to up
-                for (int k = 1; k < row-cycleNum; k++){
-                    if(result.size() == total){return result;}
-                    i--;
-                    if(result.contains(matrix[i][j])){
-                        System.out.println("[up] i : " + i + "/ j : " + j + "one cylce!");
-                        i++;
-                        break;
-                    }
-                    result.add(matrix[i][j]);
-                    System.out.println("i : " + i + "/ j : " + j);
-                }
-
-                cycleNum ++;
+            //right
+            for (int j = colBegin; j <= colEnd; j++) {
+                result.add(matrix[rowBegin][j]);
             }
+            rowBegin++;
+
+            // down
+            for (int i = rowBegin; i <= rowEnd; i++) {
+                result.add(matrix[i][colEnd]);
+            }
+            colEnd--;
+
+            // left
+            if(rowBegin <= rowEnd) {
+                for (int j = colEnd; j >= colBegin; j--) {
+                    result.add(matrix[rowEnd][j]);
+                }
+            }
+
+            rowEnd--;
+
+            // up
+            if(colBegin <= colEnd) {
+                for (int i = rowEnd; i >= rowBegin; i--) {
+                    result.add(matrix[i][colBegin]);
+                }
+                colBegin++;
+            }
+        }// while문
 
         return result;
     }
