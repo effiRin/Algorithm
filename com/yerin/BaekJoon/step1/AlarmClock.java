@@ -1,4 +1,4 @@
-package com.yerin.BaekJoon;
+package com.yerin.BaekJoon.step1;
 
 import java.util.Scanner;
 
