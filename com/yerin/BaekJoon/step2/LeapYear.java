@@ -1,10 +1,11 @@
-package com.yerin.BaekJoon.step1;
+package com.yerin.BaekJoon.step2;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class LeapYear {
+    //https://www.acmicpc.net/problem/2753
 
     public static void main(String[] args) throws IOException {
 

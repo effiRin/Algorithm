@@ -1,8 +1,9 @@
-package com.yerin.BaekJoon.step1;
+package com.yerin.BaekJoon.step2;
 
 import java.util.Scanner;
 
 public class AlarmClock {
+    //https://www.acmicpc.net/problem/2884
 
     public static void main(String[] args) {
 
