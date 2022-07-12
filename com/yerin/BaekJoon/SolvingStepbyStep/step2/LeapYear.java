@@ -1,4 +1,4 @@
-package com.yerin.BaekJoon.step2;
+package com.yerin.BaekJoon.SolvingStepbyStep.step2;
 
 import java.io.BufferedReader;
 import java.io.IOException;

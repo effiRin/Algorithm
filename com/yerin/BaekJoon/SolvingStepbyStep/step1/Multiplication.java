@@ -1,4 +1,4 @@
-package com.yerin.BaekJoon.step1;
+package com.yerin.BaekJoon.SolvingStepbyStep.step1;
 
 import java.util.Scanner;
 
