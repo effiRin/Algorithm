@@ -4,18 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PascalsTriangle {
-    // https://leetcode.com/explore/learn/card/array-and-string/202/introduction-to-2d-array/1170/
 
-    // 잘못된 풀이
     public List<List<Integer>> generate(int numRows) {
 
         List<List<Integer>> list = new ArrayList<>();
-        List<Integer> temp = new ArrayList<>();
 
-        temp.add(0, 1);
-        list.add(temp);
+        Integer[] temp = new Integer[1];
+        temp[0] = 1;
+        list.add(0, List.of(temp));
 
-        // 첫 번째 줄
+        // 첫 번째 줄 = list[0]
         if (numRows == 1) {
             return list;
         }
@@ -24,27 +22,24 @@ public class PascalsTriangle {
         int countRow = 1;
 
         while (countRow < numRows) {
+            Integer[] temp2 = new Integer[countRow + 1];
+            temp2[0] = 1; // 처음
+            temp2[countRow] = 1; // 끝
 
-            temp.clear();
-            System.out.println(temp);
+            for (int i = 1; i < countRow; i++) {
+                Integer num = list.get(countRow - 1).get(i - 1) + list.get(countRow - 1).get(i);
+                temp2[i] = num;
+            }// for
 
-            temp.add(0, 1);  // 처음
-
-                for (int i = 1; i < countRow; i++) {
-                    Integer num = list.get(countRow-2).get(i-1) + list.get(countRow-2).get(i);
-                    temp.add(num);
-                }// for
-
-            temp.add(countRow, 1); // 끝
-            list.add(temp);
+            list.add(countRow, List.of(temp2));
 
             countRow++;
 
         } // while
 
-        return list;
+            return list;
 
-    }// method
+        }// method
 
     public static void main(String[] args) {
 
