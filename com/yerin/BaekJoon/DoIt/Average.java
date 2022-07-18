@@ -10,34 +10,28 @@ public class Average {
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int numOfSubject = Integer.parseInt(br.readLine()); // 과목수
+        String[] temp = br.readLine().split(" "); // 점수들
 
-        int numOfSubject = Integer.parseInt(br.readLine());
-        String[] temp = br.readLine().split(" ");
+        int[] scores = new int[numOfSubject];
+        int sum = 0;     // 점수의 합
+        int m = 0;      // 최댓값
 
         // 현재 성적
-        double scores[] = new double[numOfSubject];
-
         for (int i = 0; i < temp.length; i++) {
-            scores[i] = Double.parseDouble(temp[i]);
+            scores[i] = Integer.parseInt(temp[i]);
+            sum += scores[i];
         }
 
         // 점수 중 최댓값
-        double m = 0;
-
-        for (double num : scores){
+        for (int num : scores){
             if(num > m){
                 m = num;
             }
         }
 
         // 조작한 점수의 평균
-        double sum = 0;
-
-        for (int i = 0; i < temp.length; i++) {
-            sum += scores[i]/m*100;
-        }
-
-        System.out.println(sum / numOfSubject);
+        System.out.println(sum * 100.0 / m / numOfSubject);
 
     }
 }
