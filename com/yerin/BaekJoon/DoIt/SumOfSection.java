@@ -17,18 +17,9 @@ public class SumOfSection {
         int n = Integer.parseInt(st.nextToken());  // 데이터의 개수
         int m = Integer.parseInt(st.nextToken());  // 물어볼 개수
 
-//        int[] nums = new int[n];    // 사실상 필요없음 -> 합 배열만 구하면 됨
         long[] sum = new long[n + 1]; // 인덱스 1부터 쓰기 위해서
 
         st = new StringTokenizer(br.readLine());    // 새로운 인스턴스 만들어서 두 번째 줄 입력 받음
-
-        // 인덱스 0부터 쓰려면 이렇게 해야 함...
-//        for (int i = 0; i < n; i++) {
-//            nums[i] = Integer.parseInt(st.nextToken());
-//
-//            if(i != 0){sum[i] = sum[i - 1] + nums[i];}
-//            else {sum[i] = nums[i];}
-//        } // for
 
         // 인덱스 1부터 - sum[0]은 기본값 0으로 들어감
         System.out.println(sum[0]);
@@ -38,7 +29,7 @@ public class SumOfSection {
         }
 
         for(int a = 0; a < m; a++) {
-            st = new StringTokenizer(br.readLine());   //
+            st = new StringTokenizer(br.readLine());
 
             int i  = Integer.parseInt(st.nextToken());
             int j  = Integer.parseInt(st.nextToken());
@@ -46,6 +37,5 @@ public class SumOfSection {
             System.out.println(sum[j] - sum[i - 1]);
 
         } // for
-
     }// main
 }
