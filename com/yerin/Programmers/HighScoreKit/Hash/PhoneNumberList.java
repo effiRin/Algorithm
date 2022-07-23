@@ -1,4 +1,4 @@
-package com.yerin.Programmers;
+package com.yerin.Programmers.HighScoreKit.Hash;
 
 import java.util.Arrays;
 
